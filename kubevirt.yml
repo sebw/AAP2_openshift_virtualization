@@ -1,4 +1,3 @@
-- name: Authenticate with token and return all VirtualMachineInstances for all accessible namespaces
-  plugin: redhat.openshift_virtualization.kubevirt
-  connections:
-    - validate_certs: false
+plugin: redhat.openshift_virtualization.kubevirt
+connections:
+  - validate_certs: false
