@@ -1,0 +1,30 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    name: myvm-ssh
+    namespace: webserver-ssh
+  spec:
+    clusterIP: 172.30.135.218
+    clusterIPs:
+    - 172.30.135.218
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 22
+      protocol: TCP
+      targetPort: 22
+    selector:
+      kubevirt.io/domain: webserver
+      kubevirt.io/size: small
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
