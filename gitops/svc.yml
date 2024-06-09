@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: myvm-ssh
-  namespace: webserver-ssh
+  name: webserver-ssh
+  namespace: dieter-tech-day
 spec:
   clusterIP: 172.30.135.218
   clusterIPs:
