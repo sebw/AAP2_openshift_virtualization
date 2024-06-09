@@ -1,0 +1,29 @@
+- name: Initial RHEL configuration
+  hosts: 	namespace_dieter_tech_day
+  gather_facts: false
+  become: true
+  tasks:
+    - name: Wait for virtual machine to be reachable
+      ansible.builtin.wait_for_connection:
+
+    - name: Disable and stop cloud-init service
+      ansible.builtin.service:
+        name: cloud-init
+        state: stopped
+        enabled: false
+
+    - name: Disable cloud-init
+      ansible.builtin.file:
+        path: /etc/cloud/cloud-init.disabled
+        state: touch
+
+    - name: Install Apache web server
+      ansible.builtin.yum:
+        name: httpd
+        state: latest
+
+    - name: Enable Apache web service
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true
