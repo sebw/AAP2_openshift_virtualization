@@ -53,7 +53,7 @@ spec:
               noCloud: {}
             source:
               secret:
-                secretName: dieter-mac-magenta-marmot-89
+                secretName: aap-ocp-virt-ssh-key-amaranth-mastodon-77
       architecture: amd64
       domain:
         cpu:
