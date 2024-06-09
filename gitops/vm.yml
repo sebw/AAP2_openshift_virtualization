@@ -96,9 +96,6 @@ spec:
             name: webserver
           name: rootdisk
         - cloudInitNoCloud:
-            userData: |-
-              #cloud-config
-              user: cloud-user
-              password: r2ap-n8nn-loe5
-              chpasswd: { expire: False }
+            secretRef: 
+              name: cloud-init-secret         
           name: cloudinitdisk
